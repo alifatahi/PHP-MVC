@@ -4,7 +4,7 @@
  * first we make connection then we use method to insert
  * then we choose table to insert
  */
-$app['database']->insert('users',[
+App::get('database')->insert('users',[
    'name' => $_POST['name']
 ]);
 
