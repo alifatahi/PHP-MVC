@@ -28,4 +28,31 @@ class QueryBuilder
 
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
+
+    /**
+     * @param $table
+     * @param $parameters
+     *  Method to insert into tables
+     */
+    public function insert($table,$parameters)
+    {
+        $sql = sprintf(
+            'INSERT INTO %s (%s) VALUES (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :',array_keys($parameters))
+        );
+
+        try{
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($parameters);
+        }catch (Exception $e){
+            die('Something went wrong');
+        }
+    }
+
+
+
+
+
 }
