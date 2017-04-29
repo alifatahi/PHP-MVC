@@ -3,10 +3,7 @@
 /**
  * Declare our Route
  */
-$router->get('','controllers/index.php');
-$router->get('about','controllers/about.php');
-$router->get('about/culture','controllers/about-culture.php');
-$router->get('contact','controllers/contact.php');
-$router->post('names','controllers/add-name.php');
-
+$router->get('','PageController@home');
+$router->get('about','PageController@about');
+$router->get('contact','PageController@contact');
 
