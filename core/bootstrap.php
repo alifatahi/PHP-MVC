@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Core;
-
+use App\Core\App;
 
 //make instance of config
 App::bind('config',require 'config.php');
@@ -17,10 +16,10 @@ function view($name,$data =[]){
     //now extract is make things like:
     // 'name' => 'ali' to $name = ali
     extract($data);
-    return require "views/{$name}.view.php";
+    return require "app/views/{$name}.view.php";
 }
 
-//Make method to redirect
+// method to redirect
 function redirect($path){
     header("Location: /{$path}");
 }
